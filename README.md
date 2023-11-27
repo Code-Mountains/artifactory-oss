@@ -197,3 +197,45 @@ sudo cp -R /root/.jfrog /mnt/samsung/code/artifactory/artifactory-oss/
 sudo chown -R sysadmin:sysadmin ../artifactory-oss/
 sudo chmod -R 777 ../artifactory-oss/
 ```
+
+
+
+# SSL Setup: 
+```
+sudo certbot certonly --standalone -d artifactory.thecodemountains.com
+
+## OUTPUT: 
+
+$ sudo certbot certonly --standalone -d artifactory.thecodemountains.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for artifactory.thecodemountains.com
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/artifactory.thecodemountains.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/artifactory.thecodemountains.com/privkey.pem
+This certificate expires on 2024-02-25.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+sudo cp etc/nginx/sites-available/artifactory.conf /etc/nginx/sites-available/
+sudo rm /etc/nginx/sites-enabled/artifactory.conf
+sudo ln -s /etc/nginx/sites-available/artifactory.conf /etc/nginx/sites-enabled/artifactory.conf
+
+sudo nginx -t
+
+sudo systemctl reload nginx
+
+sudo systemctl restart nginx
+
+
+
+
+```
