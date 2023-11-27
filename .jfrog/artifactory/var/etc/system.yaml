@@ -1,0 +1,14 @@
+shared:
+  node:
+    ip: 127.0.0.1
+    id: vault.thecodemountains.com
+    name: vault
+  database:
+    type: postgresql
+    driver: org.postgresql.Driver
+    password: password
+    username: artifactory
+    url: jdbc:postgresql://127.0.0.1:5432/artifactory
+router:
+  entrypoints:
+    externalPort: 8082
