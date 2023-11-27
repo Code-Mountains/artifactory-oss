@@ -3,6 +3,7 @@ services:
   artifactory:
     image: ${DOCKER_REGISTRY}/jfrog/artifactory-oss:${ARTIFACTORY_VERSION}
     container_name: artifactory
+    user: "${UID}:${GID}"
     environment:
       - JF_ROUTER_ENTRYPOINTS_EXTERNALPORT=${JF_ROUTER_ENTRYPOINTS_EXTERNALPORT}
     ports:
