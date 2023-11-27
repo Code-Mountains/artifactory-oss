@@ -86,3 +86,20 @@ NOTE: The compose file uses several environment variables from the .env file. Re
 Done
 
 ```
+
+# Start Artifactory Container:
+```
+docker-compose -p rt up -d
+
+# OUTPUT :
+$ docker-compose -p rt up -d
+Recreating artifactory ... done
+
+$ docker ps -a
+CONTAINER ID   IMAGE                                                   COMMAND                  CREATED              STATUS              PORTS                                                                                                      NAMES
+50f222835083   releases-docker.jfrog.io/jfrog/artifactory-oss:7.71.5   "/entrypoint-artifac…"   About a minute ago   Up About a minute   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp, 0.0.0.0:8085->8085/tcp, :::8085->8085/tcp   artifactory
+1bb594706368   releases-docker.jfrog.io/postgres:13.10-alpine          "docker-entrypoint.s…"   42 minutes ago       Up 42 minutes       0.0.0.0:5432->5432/tcp, :::5432->5432/tcp
+                                           postgresql
+
+
+```
